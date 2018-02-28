@@ -2,6 +2,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/*
+    A class to calculate the total resistance in an electric circuit with an arbitrary 
+    combination of resistors in series and parallel, using Composition pattern.
+*/
 public class Resistance {
     private double value;
     private List<Resistance> inSeries = new ArrayList<>();
