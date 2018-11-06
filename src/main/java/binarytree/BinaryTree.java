@@ -17,10 +17,11 @@ public class BinaryTree {
     }
 
     private static void addToTree(Node curr, int index, List<Integer> input) {
-        while(input.get(index) == null) {
-            if(index >= input.size()-4) return;
+        while(index < input.size() && input.get(index) == null) {
             index++;
         }
+        if(index >= input.size()) return;
+        index = effectiveIndex(index, input);
         int leftChild = 2 * index + 1;
         if (leftChild < input.size() && input.get(leftChild) != null) {
             curr.left = new Node(input.get(leftChild));
@@ -28,10 +29,20 @@ public class BinaryTree {
         }
 
         int rightChild = 2 * index + 2;
-        if (leftChild < input.size() && input.get(rightChild) != null) {
+        if (rightChild < input.size() && input.get(rightChild) != null) {
             curr.right = new Node(input.get(rightChild));
             addToTree(curr.right, rightChild, input);
         }
+    }
+
+    private static int effectiveIndex(int idx, List<Integer>input) {
+        int effective=0;
+        for(int i=1;i<=idx;i++) {
+            if(input.get(i) != null) {
+                effective++;
+            }
+        }
+        return effective;
     }
 
     public List<Integer> inOrder() {
