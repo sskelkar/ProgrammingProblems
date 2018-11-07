@@ -73,4 +73,34 @@ public class RootToLeafPathTest {
         //then
         assertEquals(2756, new RootToLeafPath().sumOfAllNumbersRepresentedByRootToLeafPaths(tree));
     }
+
+    @Test
+    public void returnMaxPathSum() {
+        //given
+        BinaryTree tree = BinaryTree.from(newArrayList(
+                10, 30, 4, 20, 60, 1, 5, null, null, null, null, null, null, null, null));
+
+        //then
+        assertEquals(110, new RootToLeafPath().maxPathSum(tree));
+    }
+
+    @Test
+    public void returnMaxPathSumWhenTreeHasNegativeNumbers() {
+        //given
+        BinaryTree tree = BinaryTree.from(newArrayList(
+                10, 2, 10, 20, 1, -1, -25, null, null, null, null, null, null, 3, 4, null, null, null, null));
+
+        //then
+        assertEquals(42, new RootToLeafPath().maxPathSum(tree));
+    }
+
+    @Test
+    public void returnMaxPathSumWhenTreeHasNegativeNumbers2() {
+        //given
+        BinaryTree tree = BinaryTree.from(newArrayList(
+                10, -1, -2, null, null, null, null));
+
+        //then
+        assertEquals(10, new RootToLeafPath().maxPathSum(tree));
+    }
 }

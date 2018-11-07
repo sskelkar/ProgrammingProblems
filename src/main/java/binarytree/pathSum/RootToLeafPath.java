@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
+import static java.lang.Math.max;
+
 public class RootToLeafPath {
     public boolean pathExistsWithSum(BinaryTree tree, int num) {
         return pathExists(tree.getRoot(), 0, num);
@@ -63,5 +65,34 @@ public class RootToLeafPath {
 
         rootToLeafPathSums(curr.left, sumSoFar, result);
         rootToLeafPathSums(curr.right, sumSoFar, result);
+    }
+
+    public int maxPathSum(BinaryTree tree) {
+        return maxPathSum(tree.getRoot()).fullPathSum;
+    }
+
+    private Result maxPathSum(Node curr) {
+        if (curr == null) return new Result(0, 0);
+
+        Result left = maxPathSum(curr.left);
+        Result right = maxPathSum(curr.right);
+
+        int partialPathSumWithCurr = max(curr.data, curr.data + max(left.partialPathSum, right.partialPathSum));
+        int fullPathSumWithCurr = left.partialPathSum + curr.data + right.partialPathSum;
+
+        return new Result(
+                partialPathSumWithCurr,
+                max(curr.data, max(fullPathSumWithCurr, max(left.fullPathSum, right.fullPathSum)))
+        );
+    }
+
+    private static class Result {
+        final int partialPathSum;
+        final int fullPathSum;
+
+        public Result(int partialPathSum, int fullPathSum) {
+            this.partialPathSum = partialPathSum;
+            this.fullPathSum = fullPathSum;
+        }
     }
 }
