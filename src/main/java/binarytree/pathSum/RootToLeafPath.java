@@ -45,4 +45,23 @@ public class RootToLeafPath {
         pathsWithSum(curr.right, sumSoFar, expected, result, path);
         path.removeLast();
     }
+
+    public long sumOfAllNumbersRepresentedByRootToLeafPaths(BinaryTree tree) {
+        List<Long> rootToLeafPathSums = new ArrayList<>();
+        rootToLeafPathSums(tree.getRoot(), 0, rootToLeafPathSums);
+
+        return rootToLeafPathSums.stream().reduce((a, b) -> a + b).orElse(0L);
+    }
+
+    private void rootToLeafPathSums(Node curr, long number, List<Long> result) {
+        if (curr == null) return;
+        long sumSoFar = number * 10 + curr.data;
+        if (curr.left == null && curr.right == null) {
+            result.add(sumSoFar);
+            return;
+        }
+
+        rootToLeafPathSums(curr.left, sumSoFar, result);
+        rootToLeafPathSums(curr.right, sumSoFar, result);
+    }
 }

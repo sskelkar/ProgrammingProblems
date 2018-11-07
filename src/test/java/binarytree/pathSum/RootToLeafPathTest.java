@@ -53,4 +53,24 @@ public class RootToLeafPathTest {
         );
         assertEquals(expectedPaths, new RootToLeafPath().pathsWithSum(tree, 22));
     }
+
+    @Test
+    public void returnSumOfAllNumbersRepresentedByRootToLeafPath() {
+        //given
+        BinaryTree tree = BinaryTree.from(newArrayList(
+                1, 2, 3, null, null));
+
+        //then
+        assertEquals(25, new RootToLeafPath().sumOfAllNumbersRepresentedByRootToLeafPaths(tree) % 1003);
+    }
+
+    @Test
+    public void returnSumOfAllNumbersRepresentedByRootToLeafPath3() {
+        //given
+        BinaryTree tree = BinaryTree.from(newArrayList(
+                1, 2, 3, 4, 5, null, 6, 7, 8, null, null, null, null, null, null, null, null));
+
+        //then
+        assertEquals(2756, new RootToLeafPath().sumOfAllNumbersRepresentedByRootToLeafPaths(tree));
+    }
 }
