@@ -8,26 +8,24 @@ import java.util.List;
 
 public class TreeToDoublyLinkedListConverter {
     private Node head;
-    private Node prev;
 
     public Node convertInPlace(BinaryTree tree) {
-        head = prev = null;
-        toDLL(tree.getRoot());
+        head = null;
+        toDLL(tree.getRoot(), null);
         return head;
     }
 
-    private void toDLL(Node curr) {
-        if (curr == null) return;
+    private Node toDLL(Node curr, Node prev) {
+        if (curr == null) return prev;
 
-        toDLL(curr.left);
+        prev = toDLL(curr.left, prev);
         if (prev == null) {
             head = curr;
         } else {
             prev.right = curr;
             curr.left = prev;
         }
-        prev = curr;
-        toDLL(curr.right);
+        return toDLL(curr.right, curr);
     }
 
     public Node convertUsingList(BinaryTree tree) {
