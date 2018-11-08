@@ -103,4 +103,14 @@ public class RootToLeafPathTest {
         //then
         assertEquals(10, new RootToLeafPath().maxPathSum(tree));
     }
+
+    @Test
+    public void returnPathWithMaximumSum() {
+        //given
+        BinaryTree tree = BinaryTree.from(newArrayList(
+                10, 2, 10, 20, 1, -1, -25, null, null, null, null, null, null, 3, 4, null, null, null, null));
+
+        //then
+        assertEquals(asList(20, 2, 10, 10), new RootToLeafPath().pathWithMaxSum(tree));
+    }
 }
