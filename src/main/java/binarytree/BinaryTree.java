@@ -74,4 +74,17 @@ public class BinaryTree {
     public Node getRoot() {
         return root;
     }
+
+    public List<Integer> postOrder() {
+        List<Integer> result = new ArrayList<>();
+        postOrder(root, result);
+        return result;
+    }
+
+    private void postOrder(Node curr, List<Integer> result) {
+        if(curr == null) return;
+        postOrder(curr.left, result);
+        postOrder(curr.right, result);
+        result.add(curr.data);
+    }
 }
