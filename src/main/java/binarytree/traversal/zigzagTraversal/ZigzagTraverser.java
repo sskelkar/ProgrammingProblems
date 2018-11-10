@@ -1,4 +1,4 @@
-package binarytree.zigzagTraversal;
+package binarytree.traversal.zigzagTraversal;
 
 import binarytree.BinaryTree;
 import binarytree.Node;

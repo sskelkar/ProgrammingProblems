@@ -1,4 +1,4 @@
-package binarytree.zigzagTraversal;
+package binarytree.traversal.verticalTraversal;
 
 import binarytree.BinaryTree;
 import org.junit.Test;
@@ -9,7 +9,7 @@ import static com.google.common.collect.Lists.newArrayList;
 import static java.util.Arrays.asList;
 import static org.junit.Assert.assertEquals;
 
-public class ZigzagTraverserTest {
+public class VerticalTraverserTest {
     /* Tree structure:
      *                              1
      *                       2             3
@@ -17,15 +17,23 @@ public class ZigzagTraverserTest {
      *             8        9 10
      */
     @Test
-    public void zigzagTraverseTheBinaryTree() {
+    public void verticallyTraverseTheBinaryTree() {
         //given
         BinaryTree tree = BinaryTree.from(newArrayList(
                 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, null, null, null, null, null, null, null, null, null, null, null));
 
         //when
-        List<Integer> zigzagTraversalResult = new ZigzagTraverser().traverseZigzag(tree);
+        List<List<Integer>> verticalTraversalResult = new VerticalTraverser().traverseVertically(tree);
 
         //then
-        assertEquals(asList(1, 2, 3, 7, 6, 5, 4, 8, 9, 10), zigzagTraversalResult);
+        List<List<Integer>> expected = asList(
+                asList(8),
+                asList(4),
+                asList(2, 9, 10),
+                asList(1, 5, 6),
+                asList(3),
+                asList(7)
+        );
+        assertEquals(expected, verticalTraversalResult);
     }
 }

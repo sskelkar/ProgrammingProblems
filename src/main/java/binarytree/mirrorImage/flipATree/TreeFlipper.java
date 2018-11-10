@@ -1,4 +1,4 @@
-package binarytree.flipATree;
+package binarytree.mirrorImage.flipATree;
 
 import binarytree.BinaryTree;
 import binarytree.Node;

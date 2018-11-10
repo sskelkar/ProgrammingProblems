@@ -1,4 +1,4 @@
-package binarytree.checkIfTreesAreMirrorImages;
+package binarytree.mirrorImage.checkIfTreesAreMirrorImages;
 
 import binarytree.BinaryTree;
 import org.junit.Test;

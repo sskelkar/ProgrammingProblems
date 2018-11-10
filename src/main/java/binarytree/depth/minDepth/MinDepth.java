@@ -1,4 +1,4 @@
-package binarytree.minDepth;
+package binarytree.depth.minDepth;
 
 import binarytree.BinaryTree;
 import binarytree.Node;

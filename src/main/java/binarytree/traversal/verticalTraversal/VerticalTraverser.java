@@ -1,4 +1,4 @@
-package binarytree.verticalTraversal;
+package binarytree.traversal.verticalTraversal;
 
 import binarytree.BinaryTree;
 import binarytree.Node;

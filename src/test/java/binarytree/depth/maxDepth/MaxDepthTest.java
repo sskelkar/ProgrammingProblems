@@ -1,4 +1,4 @@
-package binarytree.maxDepth;
+package binarytree.depth.maxDepth;
 
 import binarytree.BinaryTree;
 import org.junit.Test;
