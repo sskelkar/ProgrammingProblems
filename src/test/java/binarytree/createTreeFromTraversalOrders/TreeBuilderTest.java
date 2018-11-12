@@ -51,4 +51,18 @@ public class TreeBuilderTest {
         assertEquals(inOrder, tree.inOrder());
         assertEquals(postOrder, tree.postOrder());
     }
+
+    @Test
+    public void constructTreeFromInorderAndPreorderTraversals() {
+        //given
+        List<Integer> inOrder = Lists.newArrayList(4, 2, 5, 1, 6, 3, 7);
+        List<Integer> preOrder = Lists.newArrayList(1, 2, 4, 5, 3, 6, 7);
+
+        //when
+        BinaryTree tree = new TreeBuilder().fromInorderAndPreorder(inOrder, preOrder);
+
+        //then
+        assertEquals(inOrder, tree.inOrder());
+        assertEquals(preOrder, tree.preOrder());
+    }
 }
