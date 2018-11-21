@@ -19,6 +19,6 @@ public class RemoveDuplicatesTest {
 
         //then
         assertEquals(4, length);
-        assertEquals(Lists.newArrayList(1, 2, 3, 4, 1, 3, 3), input);
+        assertEquals(Lists.newArrayList(1, 2, 3, 4), input.subList(0, 4));
     }
 }
